@@ -13,7 +13,7 @@
 
 <title>Exploring the Geo-PKO dataset</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
@@ -24,6 +24,7 @@
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -34,6 +35,15 @@ div.section {
 </style>
 
 
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -335,7 +345,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-12-16
+<strong>Last updated:</strong> 2020-12-19
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -426,30 +436,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreecb517bd013533ba7bfd704ad11e8cf31e57e1f59targetblankcb517bda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/hatnguyen267/GeoPKO/tree/cb517bd013533ba7bfd704ad11e8cf31e57e1f59" target="_blank">cb517bd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomgeopkoGeoPKORtreed4cb3472b5fe39b65c467149cc3d69fba92e66fbtargetblankd4cb347a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/geopko/Geo-PKO-R/tree/d4cb3472b5fe39b65c467149cc3d69fba92e66fb" target="_blank">d4cb347</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomhatnguyen267GeoPKOtreecb517bd013533ba7bfd704ad11e8cf31e57e1f59targetblankcb517bda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomgeopkoGeoPKORtreed4cb3472b5fe39b65c467149cc3d69fba92e66fbtargetblankd4cb347a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/hatnguyen267/GeoPKO/tree/cb517bd013533ba7bfd704ad11e8cf31e57e1f59" target="_blank">cb517bd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/geopko/Geo-PKO-R/tree/d4cb3472b5fe39b65c467149cc3d69fba92e66fb" target="_blank">d4cb347</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    figure/
-
-Unstaged changes:
-    Modified:   analysis/about.Rmd
-    Modified:   analysis/merge.Rmd
-    Modified:   data/Geo_PKO_v.2.0.csv
 
 </code></pre>
 <p>
@@ -493,16 +496,16 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/cb517bd013533ba7bfd704ad11e8cf31e57e1f59/analysis/index.Rmd" target="_blank">cb517bd</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/d4cb3472b5fe39b65c467149cc3d69fba92e66fb/analysis/index.Rmd" target="_blank">d4cb347</a>
 </td>
 <td>
 Nguyen Ha
 </td>
 <td>
-2020-12-16
+2020-12-19
 </td>
 <td>
-building index
+changing dataset preview for kable
 </td>
 </tr>
 <tr>
@@ -510,7 +513,7 @@ building index
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/21f777343d9ce97740f33bc532a15319e8c34dd3/docs/index.html" target="_blank">21f7773</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/49f4a71ab64c57c1cc1d25ae8462badbeca13a93/docs/index.html" target="_blank">49f4a71</a>
 </td>
 <td>
 Nguyen Ha
@@ -527,7 +530,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/2d3e02ced24c831a911f8e55a390127a1a885eab/analysis/index.Rmd" target="_blank">2d3e02c</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/cb517bd013533ba7bfd704ad11e8cf31e57e1f59/analysis/index.Rmd" target="_blank">cb517bd</a>
 </td>
 <td>
 Nguyen Ha
@@ -544,7 +547,7 @@ building index
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/69e0a2bd0b50952ff97c2e5f736120a19c72ff68/docs/index.html" target="_blank">69e0a2b</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/21f777343d9ce97740f33bc532a15319e8c34dd3/docs/index.html" target="_blank">21f7773</a>
 </td>
 <td>
 Nguyen Ha
@@ -561,7 +564,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/ef1f910680d2f5b593135298956384f60ea8e5b2/analysis/index.Rmd" target="_blank">ef1f910</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/2d3e02ced24c831a911f8e55a390127a1a885eab/analysis/index.Rmd" target="_blank">2d3e02c</a>
 </td>
 <td>
 Nguyen Ha
@@ -578,7 +581,41 @@ building index
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/1e2bda431b00de958cf36ac505490e54fc75e835/docs/index.html" target="_blank">1e2bda4</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/69e0a2bd0b50952ff97c2e5f736120a19c72ff68/docs/index.html" target="_blank">69e0a2b</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/ef1f910680d2f5b593135298956384f60ea8e5b2/analysis/index.Rmd" target="_blank">ef1f910</a>
+</td>
+<td>
+Nguyen Ha
+</td>
+<td>
+2020-12-16
+</td>
+<td>
+building index
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/1e2bda431b00de958cf36ac505490e54fc75e835/docs/index.html" target="_blank">1e2bda4</a>
 </td>
 <td>
 Nguyen Ha
@@ -595,7 +632,7 @@ Build site.
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/0c74087967ed5a9477744e5e22553ac12b698de1/docs/index.html" target="_blank">0c74087</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/0c74087967ed5a9477744e5e22553ac12b698de1/docs/index.html" target="_blank">0c74087</a>
 </td>
 <td>
 Nguyen Ha
@@ -612,7 +649,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/32661412f9180343f2d8ed7680d75f291f9efe20/analysis/index.Rmd" target="_blank">3266141</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/32661412f9180343f2d8ed7680d75f291f9efe20/analysis/index.Rmd" target="_blank">3266141</a>
 </td>
 <td>
 Nguyen Ha
@@ -629,7 +666,7 @@ incorporating new updates
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/885e0d511cf9fcd835d09f8b4038659643097770/docs/index.html" target="_blank">885e0d5</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/885e0d511cf9fcd835d09f8b4038659643097770/docs/index.html" target="_blank">885e0d5</a>
 </td>
 <td>
 Nguyen Ha
@@ -646,7 +683,7 @@ Build site.
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/263d508e46d0a23d5de5cd117c7700d645f89964/docs/index.html" target="_blank">263d508</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/263d508e46d0a23d5de5cd117c7700d645f89964/docs/index.html" target="_blank">263d508</a>
 </td>
 <td>
 Nguyen Ha
@@ -663,7 +700,7 @@ Build site.
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/a966566bcaa53a62b88de6e32cbcaf89fc9748d2/docs/index.html" target="_blank">a966566</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/a966566bcaa53a62b88de6e32cbcaf89fc9748d2/docs/index.html" target="_blank">a966566</a>
 </td>
 <td>
 Nguyen Ha
@@ -680,7 +717,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/eafa002c5ba37e0bac4a4425ee129f16e26e63d1/analysis/index.Rmd" target="_blank">eafa002</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/eafa002c5ba37e0bac4a4425ee129f16e26e63d1/analysis/index.Rmd" target="_blank">eafa002</a>
 </td>
 <td>
 Nguyen Ha
@@ -697,7 +734,7 @@ adapting to new dataset version
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/acee4ed45acd6a5b4677faf498a38b4478b83658/docs/index.html" target="_blank">acee4ed</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/acee4ed45acd6a5b4677faf498a38b4478b83658/docs/index.html" target="_blank">acee4ed</a>
 </td>
 <td>
 Nguyen Ha
@@ -714,7 +751,7 @@ Build site.
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/2011bdad3a85736850ac50a4ec80ad7289c56ca3/docs/index.html" target="_blank">2011bda</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/2011bdad3a85736850ac50a4ec80ad7289c56ca3/docs/index.html" target="_blank">2011bda</a>
 </td>
 <td>
 Nguyen Ha
@@ -731,7 +768,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/448b94c6836a91ac68fc5831234d1b56ee6f38e9/analysis/index.Rmd" target="_blank">448b94c</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/448b94c6836a91ac68fc5831234d1b56ee6f38e9/analysis/index.Rmd" target="_blank">448b94c</a>
 </td>
 <td>
 Nguyen Ha
@@ -748,7 +785,7 @@ Revised viz, index, incorporated merge.rmd
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/analysis/index.Rmd" target="_blank">f2f9e90</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/analysis/index.Rmd" target="_blank">f2f9e90</a>
 </td>
 <td>
 Nguyen Ha
@@ -765,7 +802,7 @@ Before building with wflowr
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/docs/index.html" target="_blank">f2f9e90</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/f2f9e90a8af50cbaf247b174531bc1f01ee790c3/docs/index.html" target="_blank">f2f9e90</a>
 </td>
 <td>
 Nguyen Ha
@@ -782,7 +819,7 @@ Before building with wflowr
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/957900e41f9151f39a8c31218d5b39bed1901ef7/analysis/index.Rmd" target="_blank">957900e</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/957900e41f9151f39a8c31218d5b39bed1901ef7/analysis/index.Rmd" target="_blank">957900e</a>
 </td>
 <td>
 GitHub
@@ -799,7 +836,7 @@ Merge pull request #19 from hatnguyen267/render
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/751a80bfbda44d3a79d681ddae106776bd49111f/docs/index.html" target="_blank">751a80b</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/751a80bfbda44d3a79d681ddae106776bd49111f/docs/index.html" target="_blank">751a80b</a>
 </td>
 <td>
 Nguyen Ha
@@ -816,7 +853,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/611e4588289ab1870c674c0bd4a9970dcf122887/analysis/index.Rmd" target="_blank">611e458</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/611e4588289ab1870c674c0bd4a9970dcf122887/analysis/index.Rmd" target="_blank">611e458</a>
 </td>
 <td>
 Nguyen Ha
@@ -833,7 +870,7 @@ new build
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/932c43bcc54b469dc0a1e9af9756c0eb1ade718c/analysis/index.Rmd" target="_blank">932c43b</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/932c43bcc54b469dc0a1e9af9756c0eb1ade718c/analysis/index.Rmd" target="_blank">932c43b</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -850,7 +887,7 @@ Update
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/2e94be527bb82b5d4bc59d0da380bf0d80adb41c/analysis/index.Rmd" target="_blank">2e94be5</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/2e94be527bb82b5d4bc59d0da380bf0d80adb41c/analysis/index.Rmd" target="_blank">2e94be5</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -867,7 +904,7 @@ update Lou
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/2d92ecac7da1e74f22756241f838be68fae5623a/analysis/index.Rmd" target="_blank">2d92eca</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/2d92ecac7da1e74f22756241f838be68fae5623a/analysis/index.Rmd" target="_blank">2d92eca</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -884,7 +921,7 @@ packages
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/6538fb85672f8a95e4efb85c4f61cb02949a5584/analysis/index.Rmd" target="_blank">6538fb8</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/6538fb85672f8a95e4efb85c4f61cb02949a5584/analysis/index.Rmd" target="_blank">6538fb8</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -901,7 +938,7 @@ troop count
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/658018add77bacbf48737d145e295a340fab702b/docs/index.html" target="_blank">658018a</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/658018add77bacbf48737d145e295a340fab702b/docs/index.html" target="_blank">658018a</a>
 </td>
 <td>
 Nguyen Ha
@@ -918,7 +955,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/b846f76b349a5cd8cd9ed2693e30b3324a6f5600/analysis/index.Rmd" target="_blank">b846f76</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/b846f76b349a5cd8cd9ed2693e30b3324a6f5600/analysis/index.Rmd" target="_blank">b846f76</a>
 </td>
 <td>
 Nguyen Ha
@@ -935,7 +972,7 @@ adding Lou’s update
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/c70e8b006aa0057d5f1659dc841bf381211c2ec2/analysis/index.Rmd" target="_blank">c70e8b0</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/c70e8b006aa0057d5f1659dc841bf381211c2ec2/analysis/index.Rmd" target="_blank">c70e8b0</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -952,7 +989,7 @@ descriptivstatistics
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/7447d5c243266d761ca484c32e3670b7eaa71488/docs/index.html" target="_blank">7447d5c</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/7447d5c243266d761ca484c32e3670b7eaa71488/docs/index.html" target="_blank">7447d5c</a>
 </td>
 <td>
 Nguyen Ha
@@ -969,7 +1006,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/03c68977e3bcd904dbd5fef3fb460905779011bd/analysis/index.Rmd" target="_blank">03c6897</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/03c68977e3bcd904dbd5fef3fb460905779011bd/analysis/index.Rmd" target="_blank">03c6897</a>
 </td>
 <td>
 Nguyen Ha
@@ -986,7 +1023,7 @@ wflow_publish(all = TRUE)
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/9a57942f63efd6594eeba6008199a6e2b304283c/docs/index.html" target="_blank">9a57942</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/9a57942f63efd6594eeba6008199a6e2b304283c/docs/index.html" target="_blank">9a57942</a>
 </td>
 <td>
 Nguyen Ha
@@ -1003,7 +1040,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7/analysis/index.Rmd" target="_blank">3c3a981</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/3c3a98173cd23bd21bd4fd5d7c7621bce4b8f4c7/analysis/index.Rmd" target="_blank">3c3a981</a>
 </td>
 <td>
 Nguyen Ha
@@ -1020,7 +1057,7 @@ Updating new maps, new pages
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/7cb84d7ece74e1b15b2247ff9679fcf725d76f2e/analysis/index.Rmd" target="_blank">7cb84d7</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/7cb84d7ece74e1b15b2247ff9679fcf725d76f2e/analysis/index.Rmd" target="_blank">7cb84d7</a>
 </td>
 <td>
 Tanushree Rao
@@ -1037,7 +1074,7 @@ updating map
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/e72567fd26edcb11083347ed065e947340431648/docs/index.html" target="_blank">e72567f</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/e72567fd26edcb11083347ed065e947340431648/docs/index.html" target="_blank">e72567f</a>
 </td>
 <td>
 Nguyen Ha
@@ -1054,7 +1091,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/9ec337bf2653404d559baa6e89f242a8a811abaa/analysis/index.Rmd" target="_blank">9ec337b</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/9ec337bf2653404d559baa6e89f242a8a811abaa/analysis/index.Rmd" target="_blank">9ec337b</a>
 </td>
 <td>
 Nguyen Ha
@@ -1071,7 +1108,7 @@ Update
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/92d111c7780b67ef9f140a604b53904836d197ee/analysis/index.Rmd" target="_blank">92d111c</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/92d111c7780b67ef9f140a604b53904836d197ee/analysis/index.Rmd" target="_blank">92d111c</a>
 </td>
 <td>
 Nguyen Ha
@@ -1088,7 +1125,7 @@ Pulling before compiling. Merge branch ‘master’ of <a href="https://github.c
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/bcabf5ed838930d1ca824833d22d65a59601b5c8/analysis/index.Rmd" target="_blank">bcabf5e</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/bcabf5ed838930d1ca824833d22d65a59601b5c8/analysis/index.Rmd" target="_blank">bcabf5e</a>
 </td>
 <td>
 Nguyen Ha
@@ -1105,7 +1142,7 @@ Pre-pull commit
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/bcabf5ed838930d1ca824833d22d65a59601b5c8/docs/index.html" target="_blank">bcabf5e</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/bcabf5ed838930d1ca824833d22d65a59601b5c8/docs/index.html" target="_blank">bcabf5e</a>
 </td>
 <td>
 Nguyen Ha
@@ -1122,7 +1159,7 @@ Pre-pull commit
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/a35561b71d6b86c36a51e85c20076ca9ec74026c/analysis/index.Rmd" target="_blank">a35561b</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/a35561b71d6b86c36a51e85c20076ca9ec74026c/analysis/index.Rmd" target="_blank">a35561b</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -1139,7 +1176,7 @@ added table
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/baaaa2008fce589d64c7ce8f121b8110892638a6/docs/index.html" target="_blank">baaaa20</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/baaaa2008fce589d64c7ce8f121b8110892638a6/docs/index.html" target="_blank">baaaa20</a>
 </td>
 <td>
 Nguyen Ha
@@ -1156,7 +1193,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/b3d8755981830a8b96a975de8841f67322c48311/analysis/index.Rmd" target="_blank">b3d8755</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/b3d8755981830a8b96a975de8841f67322c48311/analysis/index.Rmd" target="_blank">b3d8755</a>
 </td>
 <td>
 Nguyen Ha
@@ -1173,7 +1210,7 @@ Adjusting graph output size
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/884b86f30c76e6c38fcd948c6af88893ada8b9c7/docs/index.html" target="_blank">884b86f</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/884b86f30c76e6c38fcd948c6af88893ada8b9c7/docs/index.html" target="_blank">884b86f</a>
 </td>
 <td>
 Nguyen Ha
@@ -1190,7 +1227,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/e863725fd19a593d37cc5deba4852cb6454b20d7/analysis/index.Rmd" target="_blank">e863725</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/e863725fd19a593d37cc5deba4852cb6454b20d7/analysis/index.Rmd" target="_blank">e863725</a>
 </td>
 <td>
 Nguyen Ha
@@ -1207,7 +1244,7 @@ building site with Tanushree’s additions
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/8fe33fcd50a9f0fb7ac3cd8347f08cb8b5aa32bd/analysis/index.Rmd" target="_blank">8fe33fc</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/8fe33fcd50a9f0fb7ac3cd8347f08cb8b5aa32bd/analysis/index.Rmd" target="_blank">8fe33fc</a>
 </td>
 <td>
 GitHub
@@ -1224,7 +1261,7 @@ Merge branch ‘master’ into hey
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/325ac4fd460598f73e3a42342a34f7ab4f3127a7/docs/index.html" target="_blank">325ac4f</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/325ac4fd460598f73e3a42342a34f7ab4f3127a7/docs/index.html" target="_blank">325ac4f</a>
 </td>
 <td>
 Nguyen Ha
@@ -1241,7 +1278,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/f5bc39094891b89fe7a3f95b7c3415de5d243145/analysis/index.Rmd" target="_blank">f5bc390</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/f5bc39094891b89fe7a3f95b7c3415de5d243145/analysis/index.Rmd" target="_blank">f5bc390</a>
 </td>
 <td>
 Nguyen Ha
@@ -1258,7 +1295,7 @@ Updating the stupid animated graph hope it will render
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/6bcd4056a357692ed4a41dda4e48ac17d74a0819/docs/index.html" target="_blank">6bcd405</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/6bcd4056a357692ed4a41dda4e48ac17d74a0819/docs/index.html" target="_blank">6bcd405</a>
 </td>
 <td>
 Nguyen Ha
@@ -1275,7 +1312,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/176eca570f593d533a994f2a267c2a9cbf8f3429/analysis/index.Rmd" target="_blank">176eca5</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/176eca570f593d533a994f2a267c2a9cbf8f3429/analysis/index.Rmd" target="_blank">176eca5</a>
 </td>
 <td>
 Nguyen Ha
@@ -1292,7 +1329,7 @@ wflow_publish(“analysis/index.Rmd”)
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/ebb000d5f5b3615a2d72c04ee5f2a3326f3c261a/analysis/index.Rmd" target="_blank">ebb000d</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/ebb000d5f5b3615a2d72c04ee5f2a3326f3c261a/analysis/index.Rmd" target="_blank">ebb000d</a>
 </td>
 <td>
 Nguyen Ha
@@ -1309,7 +1346,7 @@ Animation added to index.rmd, waiting to be rendered
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/ebb000d5f5b3615a2d72c04ee5f2a3326f3c261a/docs/index.html" target="_blank">ebb000d</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/ebb000d5f5b3615a2d72c04ee5f2a3326f3c261a/docs/index.html" target="_blank">ebb000d</a>
 </td>
 <td>
 Nguyen Ha
@@ -1326,7 +1363,7 @@ Animation added to index.rmd, waiting to be rendered
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/5edc140c92907cec6cd3ba3f5ba0a754cfd84603/analysis/index.Rmd" target="_blank">5edc140</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/5edc140c92907cec6cd3ba3f5ba0a754cfd84603/analysis/index.Rmd" target="_blank">5edc140</a>
 </td>
 <td>
 Tanushree Rao
@@ -1343,7 +1380,7 @@ new map
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/819ccf2a7787a95d348e4673514b388d9d24d56c/docs/index.html" target="_blank">819ccf2</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/819ccf2a7787a95d348e4673514b388d9d24d56c/docs/index.html" target="_blank">819ccf2</a>
 </td>
 <td>
 Nguyen Ha
@@ -1360,7 +1397,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/9c0642e723233372c039e5498b86fc7c4fb3f2a5/analysis/index.Rmd" target="_blank">9c0642e</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/9c0642e723233372c039e5498b86fc7c4fb3f2a5/analysis/index.Rmd" target="_blank">9c0642e</a>
 </td>
 <td>
 Nguyen Ha
@@ -1377,7 +1414,7 @@ wflow_publish(“analysis/index.Rmd”)
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/0d5cc47d602a124c76a027be9f7aa979ca8fc79d/analysis/index.Rmd" target="_blank">0d5cc47</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/0d5cc47d602a124c76a027be9f7aa979ca8fc79d/analysis/index.Rmd" target="_blank">0d5cc47</a>
 </td>
 <td>
 Nguyen Ha
@@ -1394,7 +1431,7 @@ Fixed conflict with main fol.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/4cf53c8649eb56e9a2902e409c11394761666923/analysis/index.Rmd" target="_blank">4cf53c8</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/4cf53c8649eb56e9a2902e409c11394761666923/analysis/index.Rmd" target="_blank">4cf53c8</a>
 </td>
 <td>
 Nguyen Ha
@@ -1411,7 +1448,7 @@ Fixing legend position; previous tables
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/14ab237285f566807081395a783b005497ddc8eb/analysis/index.Rmd" target="_blank">14ab237</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/14ab237285f566807081395a783b005497ddc8eb/analysis/index.Rmd" target="_blank">14ab237</a>
 </td>
 <td>
 GitHub
@@ -1428,7 +1465,7 @@ Update index.Rmd
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/557ebbf06105e066e0ae85b74d5a6feee87f884c/analysis/index.Rmd" target="_blank">557ebbf</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/557ebbf06105e066e0ae85b74d5a6feee87f884c/analysis/index.Rmd" target="_blank">557ebbf</a>
 </td>
 <td>
 Lou van Roozendaal
@@ -1445,7 +1482,7 @@ Lou_change_graph
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/3bde5f58f723b18f599bfb2a44835957d5340451/docs/index.html" target="_blank">3bde5f5</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/3bde5f58f723b18f599bfb2a44835957d5340451/docs/index.html" target="_blank">3bde5f5</a>
 </td>
 <td>
 Nguyen Ha
@@ -1462,7 +1499,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/8b39fe5ace8c522d6acf487ba761546dbf770188/analysis/index.Rmd" target="_blank">8b39fe5</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/8b39fe5ace8c522d6acf487ba761546dbf770188/analysis/index.Rmd" target="_blank">8b39fe5</a>
 </td>
 <td>
 Nguyen Ha
@@ -1479,7 +1516,7 @@ wflow_publish(c(“index.Rmd”, “about.Rmd”))
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/8b39fe5ace8c522d6acf487ba761546dbf770188/docs/index.html" target="_blank">8b39fe5</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/8b39fe5ace8c522d6acf487ba761546dbf770188/docs/index.html" target="_blank">8b39fe5</a>
 </td>
 <td>
 Nguyen Ha
@@ -1496,7 +1533,7 @@ wflow_publish(c(“index.Rmd”, “about.Rmd”))
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/01d2b98a85e54db65b16995d8829ccc45cdda1fd/docs/index.html" target="_blank">01d2b98</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/01d2b98a85e54db65b16995d8829ccc45cdda1fd/docs/index.html" target="_blank">01d2b98</a>
 </td>
 <td>
 hatnguyen267
@@ -1513,7 +1550,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/0a3c9c9d5686ea117ea1cea12f7433c074467dc1/analysis/index.Rmd" target="_blank">0a3c9c9</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/0a3c9c9d5686ea117ea1cea12f7433c074467dc1/analysis/index.Rmd" target="_blank">0a3c9c9</a>
 </td>
 <td>
 hatnguyen267
@@ -1530,7 +1567,7 @@ more to index.rmb
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/50d7b310a2e0cb947af5b4b47bab1c01a9db53e9/docs/index.html" target="_blank">50d7b31</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/50d7b310a2e0cb947af5b4b47bab1c01a9db53e9/docs/index.html" target="_blank">50d7b31</a>
 </td>
 <td>
 hatnguyen267
@@ -1547,7 +1584,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/4db5b4facfdbf89e88977ca46fe7dca4188772a4/analysis/index.Rmd" target="_blank">4db5b4f</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/4db5b4facfdbf89e88977ca46fe7dca4188772a4/analysis/index.Rmd" target="_blank">4db5b4f</a>
 </td>
 <td>
 hatnguyen267
@@ -1564,7 +1601,7 @@ adding items to index.rmb
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/hatnguyen267/GeoPKO/4d2d90fb3cfcbdc3267913a62c038ee3a2714c3e/docs/index.html" target="_blank">4d2d90f</a>
+<a href="https://rawcdn.githack.com/geopko/Geo-PKO-R/4d2d90fb3cfcbdc3267913a62c038ee3a2714c3e/docs/index.html" target="_blank">4d2d90f</a>
 </td>
 <td>
 hatnguyen267
@@ -1581,7 +1618,7 @@ Build site.
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/a7817f71200b62725766c88ff54ebd9e0b6a1832/analysis/index.Rmd" target="_blank">a7817f7</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/a7817f71200b62725766c88ff54ebd9e0b6a1832/analysis/index.Rmd" target="_blank">a7817f7</a>
 </td>
 <td>
 hatnguyen267
@@ -1598,7 +1635,7 @@ wflow_publish(all = TRUE)
 Rmd
 </td>
 <td>
-<a href="https://github.com/hatnguyen267/GeoPKO/blob/8e7fc45bba00f886feba35e1ee2af41be0d30289/analysis/index.Rmd" target="_blank">8e7fc45</a>
+<a href="https://github.com/geopko/Geo-PKO-R/blob/8e7fc45bba00f886feba35e1ee2af41be0d30289/analysis/index.Rmd" target="_blank">8e7fc45</a>
 </td>
 <td>
 hatnguyen267
@@ -1631,10 +1668,11 @@ pre[class]{
 <h2>Overview</h2>
 <p>This document contains a series of steps that the project members have performed to extract meaningful information the Geo-PKO dataset. More details on the dataset can be found on its <a href="https://www.pcr.uu.se/data/geo-pko/">homepage</a>.</p>
 <p>We start by importing the dataset. To get a sense of how <code>read_csv</code> would parse the dataset, run <code>spec_csv()</code> on the dataset beforehand.</p>
-<pre class="r"><code>library(readr)
-
-spec_csv(&quot;data/Geo_PKO_v.2.0.csv&quot;)</code></pre>
-<pre><code>Parsed with column specification:
+<pre class="r"><code>library(readr)</code></pre>
+<pre><code>Warning: package &#39;readr&#39; was built under R version 4.0.3</code></pre>
+<pre class="r"><code>spec_csv(&quot;data/Geo_PKO_v.2.0.csv&quot;)</code></pre>
+<pre><code>
+-- Column specification -----------------------------------------------------------------------------------
 cols(
   .default = col_double(),
   source = col_character(),
@@ -1658,8 +1696,8 @@ cols(
   nameoftcc_3 = col_character(),
   nameoftcc_4 = col_character()
   # ... with 40 more columns
-)</code></pre>
-<pre><code>See spec(...) for full column specifications.</code></pre>
+)
+i Use `spec()` for the full column specifications.</code></pre>
 <pre><code>cols(
   source = col_character(),
   mission = col_character(),
@@ -3896,32 +3934,12 @@ Lagunes
 <pre class="r"><code>rownames(TotalCount)[TotalCount.&gt;4] #mission active in 9 countries</code></pre>
 <pre><code>[1] &quot;MONUC&quot;</code></pre>
 <p>Geo-PKO v2.0 covers the period of 1994-2019. Some missions that are included here were already well underway before 1994, and several are still ongoing to this date. Since data in GeoPKO is collected from deployment maps, these timestamps reflect the publication dates of the maps. Many UN peacekeeping missions release these maps on a regular basis, which could be once a year or once every three months. We can have a look at the specific periods for which each mission is coded in the dataset, arranged by the earliest starting timepoint. Note that this is not necessarily the start and end dates of a missions.</p>
-<pre class="r"><code>library(zoo)</code></pre>
-<pre><code>
-Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
+<pre class="r"><code>library(zoo)
+library(tidyr)
+library(dplyr)
+library(lubridate)
 
-    as.Date, as.Date.numeric</code></pre>
-<pre class="r"><code>library(tidyr)
-library(dplyr)</code></pre>
-<pre><code>
-Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:kableExtra&#39;:
-
-    group_rows</code></pre>
-<pre><code>The following objects are masked from &#39;package:stats&#39;:
-
-    filter, lag</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
-
-    intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(lubridate)</code></pre>
-<pre><code>
-Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
-
-    date, intersect, setdiff, union</code></pre>
-<pre class="r"><code>GeoPKO %&gt;% select(mission, year, month) %&gt;% 
+GeoPKO %&gt;% select(mission, year, month) %&gt;% 
   mutate(month=as.numeric(month),
          MonthChr=as.character(month(month, label=TRUE, abbr= FALSE))) %&gt;%   #turn numeric months into words 
   unite(timepoint, c(&quot;year&quot;, &quot;MonthChr&quot;), sep=&quot; &quot;) %&gt;% 
@@ -3931,7 +3949,6 @@ Attaching package: &#39;lubridate&#39;</code></pre>
   kable(., caption= &quot;Missions arranged by the earliest start date&quot;,
         col.names=c(&quot;Mission&quot;, &quot;Starting point&quot;, &quot;End point&quot;)) %&gt;% kable_styling() %&gt;%
   scroll_box(width = &quot;100%&quot;, height = &quot;300px&quot;) </code></pre>
-<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -5013,37 +5030,39 @@ GeoPKO %&gt;% filter(mission==&quot;MINUSMA&quot;) %&gt;%   unite(timepoint, c(&
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.0.2 (2020-06-22)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 19041)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
 locale:
-[1] LC_COLLATE=English_Sweden.1252  LC_CTYPE=English_Sweden.1252   
-[3] LC_MONETARY=English_Sweden.1252 LC_NUMERIC=C                   
-[5] LC_TIME=English_Sweden.1252    
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
 [1] ggthemes_4.2.0   ggplot2_3.3.2    lubridate_1.7.9  dplyr_1.0.2     
-[5] tidyr_1.1.1      zoo_1.8-8        kableExtra_1.1.0 readr_1.3.1     
+[5] tidyr_1.1.2      zoo_1.8-8        kableExtra_1.2.1 readr_1.4.0     
 [9] workflowr_1.6.2 
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0  xfun_0.16         purrr_0.3.4       lattice_0.20-41  
- [5] colorspace_1.4-1  vctrs_0.3.2       generics_0.0.2    htmltools_0.5.0  
+ [1] tidyselect_1.1.0  xfun_0.19         purrr_0.3.4       lattice_0.20-41  
+ [5] colorspace_1.4-1  vctrs_0.3.4       generics_0.0.2    htmltools_0.5.0  
  [9] viridisLite_0.3.0 yaml_2.2.1        utf8_1.1.4        rlang_0.4.7      
-[13] later_1.1.0.1     pillar_1.4.6      withr_2.2.0       glue_1.4.1       
+[13] later_1.1.0.1     pillar_1.4.6      withr_2.3.0       glue_1.4.2       
 [17] lifecycle_0.2.0   stringr_1.4.0     gtable_0.3.0      munsell_0.5.0    
-[21] rvest_0.3.6       evaluate_0.14     labeling_0.3      knitr_1.29       
+[21] rvest_0.3.6       evaluate_0.14     labeling_0.3      knitr_1.30       
 [25] httpuv_1.5.4      fansi_0.4.1       highr_0.8         Rcpp_1.0.5       
-[29] promises_1.1.1    backports_1.1.7   scales_1.1.1      webshot_0.5.2    
+[29] promises_1.1.1    backports_1.1.10  scales_1.1.1      webshot_0.5.2    
 [33] farver_2.0.3      fs_1.5.0          hms_0.5.3         digest_0.6.25    
-[37] stringi_1.4.6     rprojroot_1.3-2   grid_4.0.2        cli_2.0.2        
+[37] stringi_1.5.3     rprojroot_1.3-2   grid_4.0.2        cli_2.0.2        
 [41] tools_4.0.2       magrittr_1.5      tibble_3.0.3      crayon_1.3.4     
 [45] whisker_0.4       pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2       
-[49] assertthat_0.2.1  rmarkdown_2.3     httr_1.4.2        rstudioapi_0.11  
+[49] assertthat_0.2.1  rmarkdown_2.4     httr_1.4.2        rstudioapi_0.11  
 [53] R6_2.4.1          git2r_0.27.1      compiler_4.0.2   </code></pre>
 </div>
 </div>

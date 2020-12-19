@@ -58,5 +58,3 @@ p3 <- ggplot(data=Africa) +
   geom_sf()+
   geom_point(data=par2009, aes(x=longitude, y=latitude, size=best_est), shape = 4, color="red")
 p3
-
-p4 <- ggplot(data=Africa) + geom_sf() +geom_point(data=)

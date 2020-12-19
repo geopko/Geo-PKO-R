@@ -73,7 +73,7 @@ rownames(TotalCount)[TotalCount.>4] #mission active in 9 countries
 
 Geo-PKO v2.0 covers the period of 1994-2019. Some missions that are included here were already well underway before 1994, and several are still ongoing to this date. Since data in GeoPKO is collected from deployment maps, these timestamps reflect the publication dates of the maps. Many UN peacekeeping missions release these maps on a regular basis, which could be once a year or once every three months. We can have a look at the specific periods for which each mission is coded in the dataset, arranged by the earliest starting timepoint. Note that this is not necessarily the start and end dates of a missions. 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(zoo)
 library(tidyr)
 library(dplyr)

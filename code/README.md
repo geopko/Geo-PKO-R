@@ -1,3 +1,3 @@
 # Code
 
-This folder contains the original R scripts that the team members produced during our training sessions in summer 2020. A large portion of this has been rewritten for the `.Rmd` documents here. 
+Command-line scripts and R scripts are shared here. Scripts that include "viz" in the file name can be used to produce visualisations of Geo-PKO data.

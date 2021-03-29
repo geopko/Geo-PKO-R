@@ -8,15 +8,12 @@ library(ggthemes)
 library(knitr)
 library(maps)
 library(dplyr)
+library(readxl)
 
-setwd("C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset")
-GeoPKO <- read.csv("Geo_PKO_v.2.0.csv")
-# View(GeoPKO)
+setwd("C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.1/Dataset")
+GeoPKO <- read_xlsx("Geo_PKO_v.2.1.xlsx")
 
-
-# View first few lines of the dataset
-head(GeoPKO)
-
+### NOTE: all paths will need to be redirected
 
 ## prep for mapping
 
@@ -35,66 +32,11 @@ GeoPKO$longitude <- as.numeric(GeoPKO$longitude)
 GeoPKO$latitude <- as.numeric(GeoPKO$latitude)
 
 
-### WORLD MAP -  a map for an all-time average
-
-alltimemap1 <- GeoPKO %>%
-    select(year, mission, month, location, latitude, longitude, no.troops, country, hq)
-
-
-alltimemap2 <- alltimemap1 %>%
-    group_by(location, latitude, longitude, mission, country,hq) %>%
-    dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
-    ungroup()
-
-View(alltimemap2)
-
-worldpko <- ggplot(data=world) +
-
-    geom_sf() +
-
-    coord_sf(xlim = c(-90, 125), ylim = c(-35, 55)) +
-
-    geom_point(data=alltimemap2,
-               aes(x=longitude, y=latitude, size=ave, color=ave, stroke=1.5), alpha=.3)+
-
- #   labs(title="UN Global Peacekeeping Deployments, 1994-2020")+
-
-    labs(size="Average Troop Deployment",col="Average Troop Deployment")+
-
-    scale_size(range = c(1, 10), breaks = c(1, 10, 100, 500, 1000, 2000, 4000, 5000))+
-
-    guides(col = guide_legend(ncol=1),
-           size = guide_legend(order = 1)) +
-
-    theme(
-        panel.grid=element_blank(),
-        panel.border = element_rect(colour = "dark grey", fill=NA, size=0.2),
-        axis.title=element_blank(),
-        axis.ticks=element_line(),
-        axis.text=element_text(),
-        panel.background = element_rect(fill = 'white'),
-        legend.direction = "vertical",
-        legend.position = "bottom",
-        legend.box = "horizontal",
-        legend.key=element_blank(),
-        legend.title = element_text(),
-        legend.spacing = unit(0.4, "cm"),
-        legend.box.spacing = unit(1, "cm"),
-        legend.margin = margin(c(0, 10, 10, 0)),
-        legend.text = element_text(
-            margin = margin(r = 10, unit = "pt"))
-    ) +
-
-    xlab("longitude") +
-    ylab("latitude")
-
-
-worldpko
-
-# ggsave("worldpko.png")
-
 
 ### WORLD MAP - map for maximum deployment size of all time
+
+
+# dataframe
 
 alltimemax1 <- GeoPKO %>%
     select(year, mission, month, location, latitude, longitude, no.troops, country, hq)
@@ -105,8 +47,8 @@ alltimemax2 <- alltimemax1 %>%
     dplyr::summarise(max = max(no.troops)) %>%
     ungroup()
 
-View(alltimemax2)
 
+# visualisation
 
 worldpkomax <- ggplot(data=world) +
 
@@ -152,115 +94,27 @@ worldpkomax <- ggplot(data=world) +
     xlab("longitude") +
     ylab("latitude")
 
-
 worldpkomax
 
-ggsave("worldpkomax.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/PCR Website Update/Viz")
+ggsave("worldpkomax.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
 
 
 
-### WORLD MAP - STATIC - 2019
+### AFRICA MAP
 
-# filter for 2019 and variables
+# dataframes (created for both africa and middle east for viz purposes)
 
-map2019df <- GeoPKO %>%
-    filter(year==2019) %>%
+africadf <- GeoPKO %>%
+    filter(country%in%c("Algeria", "Central African Republic", "DRC", "Egypt", "Israel", "Mali", "Lebanon", "Rwanda", "South Sudan", "Sudan", "Syria", "Uganda", "Western Sahara"), year==2020) %>%
     select(mission, month, location, latitude, longitude, no.troops, country, hq)
 
-# View(map2019df)
-
-# average the troop numbers over months in 2019
-
-map2019df1 <- map2019df %>%
-    group_by(location, latitude, longitude, mission, country,hq) %>%
-    dplyr::dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
-    ungroup()
-
-# View(map2019df1)
-
-
-worldpko2019 <- ggplot(data=world) +
-
-    geom_sf() +
-
-    coord_sf(xlim = c(-90, 125), ylim = c(-35, 55)) +
-
-    geom_point(data=map2019df1,
-                aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4)+
-
-    geom_point(
-        data=map2019df1 %>%
-            filter(hq==3),
-            aes(x=longitude, y=latitude), color="black", shape=16, size=2
-    ) +
-
-    geom_label_repel(
-        data=map2019df1 %>%
-            filter(hq==3),
-            min.segment.length = 0.2,
-            label.size = 0.5,
-            box.padding = 2,
-            size = 3,
-            aes(x=longitude, y=latitude, label=mission)
-    ) +
-
-    labs(title="UN Global Peacekeeping Deployment and Mission HQs, 2019")+
-
-    labs(size="Average Troop Deployment",col="Country")+
-
-    labs(caption="Source: Geo-PKO v2.0")+
-
-    scale_size(range = c(1, 10), breaks = c(10, 100, 500, 1000, 2000,4000))+
-
-    guides(col = guide_legend(ncol=3),
-           size = guide_legend(order = 1)) +
-
-    theme(
-    panel.grid=element_blank(),
-    panel.border = element_rect(colour = "dark grey", fill=NA, size=0.2),
-    axis.title=element_blank(),
-    axis.ticks=element_line(),
-    axis.text=element_text(),
-    panel.background = element_rect(fill = 'white'),
-    legend.direction = "vertical",
-    legend.position = "bottom",
-    legend.box = "horizontal",
-    legend.title = element_text(),
-    legend.key=element_blank(),
-    legend.spacing = unit(0.4, "cm"),
-    legend.box.spacing = unit(1, "cm"),
-    legend.margin = margin(c(0, 10, 10, 0)),
-    legend.text = element_text(
-        margin = margin(r = 10, unit = "pt"))
-    ) +
-
-    xlab("longitude") +
-    ylab("latitude")
-
-
-
-worldpko2019
-
-ggsave("worldpko2019.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery")
-
-
-
-
-
-
-### AFRICA MAP - STATIC
-
-africa2019df <- GeoPKO %>%
-    filter(country%in%c("Algeria", "Central African Republic", "DRC", "Egypt", "Israel", "Mali", "Lebanon", "Rwanda", "South Sudan", "Sudan", "Syria", "Uganda", "Western Sahara"), year==2019) %>%
-    select(mission, month, location, latitude, longitude, no.troops, country, hq)
-
-africa2019df1 <- africa2019df %>%
+africadf1 <- africadf %>%
     group_by(location, latitude, longitude, mission, country,hq) %>%
     dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
     ungroup()
 
-withoutmelabs <- africa2019df <- GeoPKO %>%
-    filter(country%in%c("Algeria", "Central African Republic", "DRC", "Egypt", "Mali", "Rwanda", "South Sudan", "Sudan", "Uganda", "Western Sahara"), year==2019) %>%
+withoutmelabs <- africadf <- GeoPKO %>%
+    filter(country%in%c("Algeria", "Central African Republic", "DRC", "Egypt", "Mali", "Rwanda", "South Sudan", "Sudan", "Uganda", "Western Sahara"), year==2020) %>%
     select(mission, month, location, latitude, longitude, no.troops, country, hq)
 
 withoutmelabs1 <- withoutmelabs %>%
@@ -269,6 +123,7 @@ withoutmelabs1 <- withoutmelabs %>%
     ungroup()
 
 
+# visualisation
 
 africapko <- ggplot(data=world) +
 
@@ -276,7 +131,7 @@ africapko <- ggplot(data=world) +
 
     coord_sf(xlim = c(-20, 55), ylim = c(-40, 40)) +
 
-    geom_point(data=africa2019df1,
+    geom_point(data=africadf1,
                aes(x=longitude, y=latitude, size=ave, color=mission, stroke=1.5), alpha=.4)+
 
     geom_point(
@@ -295,7 +150,7 @@ africapko <- ggplot(data=world) +
         aes(x=longitude, y=latitude, label=mission)
     ) +
 
-#    labs(title="UN Peacekeeping Deployment and Mission HQs - Africa and the Middle East, 2019")+
+#    labs(title="UN Peacekeeping Deployment and Mission HQs - Africa and the Middle East, 2020")+
 
     labs(size="Average Troop Deployment",col="Mission")+
 
@@ -324,25 +179,28 @@ africapko <- ggplot(data=world) +
     xlab("longitude") +
     ylab("latitude")
 
-
-
 africapko
 
-ggsave("africapko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/PCR Website Update/Viz")
+ggsave("africapko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
 
 
-### MIDDLE EAST MAP - STATIC
 
-me2019df <- GeoPKO %>%
-    filter(country%in%c("Egypt", "Israel", "Lebanon", "Syria"), year==2019) %>%
+### MIDDLE EAST MAP
+
+
+# dataframe
+
+medf <- GeoPKO %>%
+    filter(country%in%c("Egypt", "Israel", "Lebanon", "Syria"), year==2020) %>%
     select(mission, month, location, latitude, longitude, no.troops, country, hq)
 
-me2019df1 <- me2019df %>%
+medf1 <- medf %>%
     group_by(location, latitude, longitude, mission, country,hq) %>%
     dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
     ungroup()
 
 
+# visualisation
 
 mepko <- ggplot(data=world) +
 
@@ -350,17 +208,17 @@ mepko <- ggplot(data=world) +
 
     coord_sf(xlim = c(32, 37), ylim = c(30, 34)) +
 
-    geom_point(data=me2019df1,
+    geom_point(data=medf1,
                aes(x=longitude, y=latitude, size=ave, color=mission, stroke=1.5), alpha=.3)+
 
     geom_point(
-        data=me2019df1 %>%
+        data=medf1 %>%
             filter(hq==3),
         aes(x=longitude, y=latitude), color="black", shape=16, size=2
     ) +
 
     geom_label_repel(
-        data=me2019df1 %>%
+        data=medf1 %>%
             filter(hq==3),
         min.segment.length = 0.2,
         label.size = 0.5,
@@ -369,7 +227,7 @@ mepko <- ggplot(data=world) +
         aes(x=longitude, y=latitude, label=mission)
     ) +
 
-    labs(title="UN Peacekeeping Deployment and Mission HQs - Middle East, 2019")+
+    labs(title="UN Peacekeeping Deployment and Mission HQs - Middle East, 2020")+
 
     labs(size="Average Troop Deployment",col="Mission")+
 
@@ -398,44 +256,27 @@ mepko <- ggplot(data=world) +
     xlab("longitude") +
     ylab("latitude")
 
-
-
 mepko
 
-ggsave("mepko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/gallery")
+ggsave("mepko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
 
 
-### AFRICA AND MIDDLE EAST
 
-africame <- ggarrange(africapko, mepko,
-                      heights = 1,
-                      common.legend = TRUE,
-                      ncol=2,
-                      legend = "bottom",
-                      hjust = -0.5,
-                      vjust = 1.5,
-                      font.label = list(size = 14, color = "black", face = "bold", family = NULL),
-                      align = c("none", "h", "v", "hv")
-)
-
-africame
-
-# ggsave("africame.png")
+### EUROPE MAP
 
 
-### EUROPE MAP - STATIC
+# dataframe
 
-
-europe2019df <- GeoPKO %>%
-    filter(country%in%c("Kosovo", "Cyprus"), year==2019) %>%
+europedf <- GeoPKO %>%
+    filter(country%in%c("Kosovo", "Cyprus"), year==2020) %>%
     select(mission, month, location, latitude, longitude, no.troops, country, hq)
 
-europe2019df1 <- europe2019df %>%
+europedf1 <- europedf %>%
     group_by(location, latitude, longitude, mission, country,hq) %>%
     dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
     ungroup()
 
-
+# visualisation
 
 europepko <- ggplot(data=world) +
 
@@ -443,17 +284,17 @@ europepko <- ggplot(data=world) +
 
     coord_sf(xlim = c(18, 38), ylim = c(34, 44)) +
 
-    geom_point(data=europe2019df1,
+    geom_point(data=europedf1,
                aes(x=longitude, y=latitude, size=ave, color=mission, stroke=1.5), alpha=.4)+
 
     geom_point(
-        data=europe2019df1 %>%
+        data=europedf1 %>%
             filter(hq==3),
         aes(x=longitude, y=latitude), color="black", shape=16, size=2
     ) +
 
     geom_label_repel(
-        data=europe2019df1 %>%
+        data=europedf1 %>%
             filter(hq==3),
         min.segment.length = 0.2,
         label.size = 0.5,
@@ -462,7 +303,7 @@ europepko <- ggplot(data=world) +
         aes(x=longitude, y=latitude, label=mission)
     ) +
 
-    #    labs(title="UN Peacekeeping Deployment and Mission HQs - Europe, 2019")+
+    #    labs(title="UN Peacekeeping Deployment and Mission HQs - Europe, 2020")+
 
     labs(size="Average Troop Deployment",col="Mission")+
 
@@ -489,28 +330,27 @@ europepko <- ggplot(data=world) +
     xlab("longitude") +
     ylab("latitude")
 
-
-
 europepko
 
-ggsave("europepko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/PCR Website Update/Viz")
+ggsave("europepko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
 
 
 
+### CENTRAL AMERICA MAP (no deployments from 2020)
 
-### CENTRAL AMERICA MAP - STATIC
+# dataframe
 
-
-ca2019df <- GeoPKO %>%
+cadf <- GeoPKO %>%
     filter(country%in%c("Haiti"), year==2019) %>%
     select(mission, month, location, latitude, longitude, no.troops, country, hq)
 
-ca2019df1 <- ca2019df %>%
+cadf1 <- cadf %>%
     group_by(location, latitude, longitude, mission, country,hq) %>%
     dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
     ungroup()
 
 
+# visualisation
 
 capko <- ggplot(data=world) +
 
@@ -518,17 +358,17 @@ capko <- ggplot(data=world) +
 
     coord_sf(xlim = c(-85,-70), ylim = c(10, 25)) +
 
-    geom_point(data=ca2019df1,
+    geom_point(data=cadf1,
                aes(x=longitude, y=latitude, color=mission, stroke=1.5), alpha=.7)+
 
     geom_point(
-        data=ca2019df1 %>%
+        data=cadf1 %>%
             filter(hq==3),
         aes(x=longitude, y=latitude), color="black", shape=16, size=6
     ) +
 
     geom_label_repel(
-        data=ca2019df1 %>%
+        data=cadf1 %>%
             filter(hq==3),
         min.segment.length = 0.2,
         label.size = 0.5,
@@ -537,7 +377,7 @@ capko <- ggplot(data=world) +
         aes(x=longitude, y=latitude, label=mission)
     ) +
 
-    #    labs(title="UN Peacekeeping Deployment and Mission HQs - Central America, 2019")+
+    #    labs(title="UN Peacekeeping Deployment and Mission HQs - Central America, 2020")+
     labs(caption="Source: Geo-PKO v2.0")+
 
     labs(col="Mission")+
@@ -561,8 +401,161 @@ capko <- ggplot(data=world) +
     xlab("longitude") +
     ylab("latitude")
 
-
-
 capko
 
-ggsave("capko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/PCR Website Update/Viz")
+ggsave("capko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
+
+
+
+
+### ADDITIONAL MAPS (not currently on PCR page)
+
+
+
+## WORLD MAP for an all-time worldaverage
+
+
+# dataframe
+
+alltimemap1 <- GeoPKO %>%
+  select(year, mission, month, location, latitude, longitude, no.troops, country, hq)
+
+
+alltimemap2 <- alltimemap1 %>%
+  group_by(location, latitude, longitude, mission, country,hq) %>%
+  dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
+  ungroup()
+
+
+# visualisation
+
+worldpko <- ggplot(data=world) +
+
+  geom_sf() +
+
+  coord_sf(xlim = c(-90, 125), ylim = c(-35, 55)) +
+
+  geom_point(data=alltimemap2,
+             aes(x=longitude, y=latitude, size=ave, color=ave, stroke=1.5), alpha=.3)+
+
+  #   labs(title="UN Global Peacekeeping Deployments, 1994-2020")+
+
+  labs(size="Average Troop Deployment",col="Average Troop Deployment")+
+
+  scale_size(range = c(1, 10), breaks = c(1, 10, 100, 500, 1000, 2000, 4000, 5000))+
+
+  guides(col = guide_legend(ncol=1),
+         size = guide_legend(order = 1)) +
+
+  theme(
+    panel.grid=element_blank(),
+    panel.border = element_rect(colour = "dark grey", fill=NA, size=0.2),
+    axis.title=element_blank(),
+    axis.ticks=element_line(),
+    axis.text=element_text(),
+    panel.background = element_rect(fill = 'white'),
+    legend.direction = "vertical",
+    legend.position = "bottom",
+    legend.box = "horizontal",
+    legend.key=element_blank(),
+    legend.title = element_text(),
+    legend.spacing = unit(0.4, "cm"),
+    legend.box.spacing = unit(1, "cm"),
+    legend.margin = margin(c(0, 10, 10, 0)),
+    legend.text = element_text(
+      margin = margin(r = 10, unit = "pt"))
+  ) +
+
+  xlab("longitude") +
+  ylab("latitude")
+
+
+worldpko
+
+ggsave("worldpko.png")
+
+
+
+## WORLD MAP - YEARLY
+
+
+## creating the dataframe
+
+# filter for year and variables
+
+mapdf <- GeoPKO %>%
+  filter(year==2020) %>%
+  select(mission, month, location, latitude, longitude, no.troops, country, hq)
+
+# average the troop numbers over months
+
+mapdf1 <- mapdf %>%
+  group_by(location, latitude, longitude, mission, country,hq) %>%
+  dplyr::dplyr::summarize(ave = mean(no.troops, na.rm=TRUE)) %>%
+  ungroup()
+
+
+## visualisation
+
+worldpko <- ggplot(data=world) +
+
+  geom_sf() +
+
+  coord_sf(xlim = c(-90, 125), ylim = c(-35, 55)) +
+
+  geom_point(data=mapdf1,
+             aes(x=longitude, y=latitude, size=ave, color=country), alpha=.4)+
+
+  geom_point(
+    data=mapdf1 %>%
+      filter(hq==3),
+    aes(x=longitude, y=latitude), color="black", shape=16, size=2
+  ) +
+
+  geom_label_repel(
+    data=mapdf1 %>%
+      filter(hq==3),
+    min.segment.length = 0.2,
+    label.size = 0.5,
+    box.padding = 2,
+    size = 3,
+    aes(x=longitude, y=latitude, label=mission)
+  ) +
+
+  labs(title="UN Global Peacekeeping Deployment and Mission HQs, 2020")+
+
+  labs(size="Average Troop Deployment",col="Country")+
+
+  labs(caption="Source: Geo-PKO v2.0")+
+
+  scale_size(range = c(1, 10), breaks = c(10, 100, 500, 1000, 2000,4000))+
+
+  guides(col = guide_legend(ncol=3),
+         size = guide_legend(order = 1)) +
+
+  theme(
+    panel.grid=element_blank(),
+    panel.border = element_rect(colour = "dark grey", fill=NA, size=0.2),
+    axis.title=element_blank(),
+    axis.ticks=element_line(),
+    axis.text=element_text(),
+    panel.background = element_rect(fill = 'white'),
+    legend.direction = "vertical",
+    legend.position = "bottom",
+    legend.box = "horizontal",
+    legend.title = element_text(),
+    legend.key=element_blank(),
+    legend.spacing = unit(0.4, "cm"),
+    legend.box.spacing = unit(1, "cm"),
+    legend.margin = margin(c(0, 10, 10, 0)),
+    legend.text = element_text(
+      margin = margin(r = 10, unit = "pt"))
+  ) +
+
+  xlab("longitude") +
+  ylab("latitude")
+
+worldpko
+
+ggsave("worldpko.png", path = "C:/Users/tanus/Dropbox/Geo-PKO working material for v 2.0/Dataset v2.1 Working Folder/PCR Page Visualisations")
+
